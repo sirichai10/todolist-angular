@@ -1,0 +1,12 @@
+.btn-select {
+    height: 45px;
+    padding: 10px;
+    margin-right: 20px;
+
+    border-radius: 5px;
+    border: 2px solid #afafaf;
+}
+
+.btn-select:hover {
+    background-color: #afafaf;
+}

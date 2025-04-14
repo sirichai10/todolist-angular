@@ -1,0 +1,14 @@
+<div class="w-[100vw] h-[8vh]">
+    <app-nav-bar></app-nav-bar>
+</div>
+<br>
+<br>
+<div class="card pt-8 lg:w-[80vw] md:w-[60vw] py-2">
+    <p class="text-center text-stone-300 text-4xl md:text-8xl">todos</p>
+    <br>
+    <app-todoform 
+        [todoList]="todoList" 
+        (itemEmit)="onCheckboxChange($event)"
+    >
+    </app-todoform>
+</div>

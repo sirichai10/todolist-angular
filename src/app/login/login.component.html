@@ -1,0 +1,36 @@
+<div class="w-full flex">
+    <div class="content bg-roseGreen flex-container">
+        <img src="https://cdn.pixabay.com/photo/2022/07/08/10/37/books-7309019_1280.png" 
+            alt="image-books"
+        >
+    </div>
+    <div class="w-[40vw] h-[100vh] bg-[#f3f1f1] flex-container">
+        <div class="card bg-white">
+            <div class="w-[50%] m-auto h-full flex flex-col items-center justify-center">
+                <form class="w-full" (ngSubmit)="onSubmit(name)" #form="ngForm">
+                    <input type="text" 
+                        class="form-control" 
+                        placeholder="username"
+                        required
+                        [(ngModel)]="username"
+                        [ngModelOptions]="{standalone: true}"
+                        #name="ngModel"
+                    >
+                    <p class="text-red-700" 
+                        *ngIf="(name.invalid && !name.pristine) && isRequired"
+                    >
+                        username is required
+                    </p>
+                    <div class="w-full pt-4 text-center">
+                        <button class="btn-login btn-primary" type="submit">login</button>
+                        <button type="button" class="btn-login btn-secondary"
+                            (click)="onclear()"
+                        >
+                            clear
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

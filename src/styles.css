@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@layer base {
+  body {
+    @apply font-sans
+  }
+}
+
+@layer components {
+  .btn-login {
+    @apply h-[35px] min-w-[92px] mr-2.5 rounded-md px-2.5
+  }
+  .btn-primary {
+    @apply bg-skyblue text-white;
+  } 
+  .btn-secondary {
+    @apply bg-white text-skyblue border border-solid border-stone-300;
+  }
+
+  .flex-container {
+    @apply flex items-center justify-center
+  }
+}
+
+.form-control {
+    height: 40px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    width: 100%;
+    padding: 5px;
+    outline: none;
+    text-align: start;
+}

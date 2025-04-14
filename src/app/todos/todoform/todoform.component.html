@@ -1,0 +1,57 @@
+<div class="card-form">
+    <div class="form-input">
+        <form class="w-full flex items-center" (ngSubmit)="onSubmit()">
+            <img class="expand-img" 
+                src="https://icons.veryicon.com/png/o/miscellaneous/rookie-30-official-icon-library/arrow-list-expand-1.png" 
+                alt="down"
+            >
+            <input class="form-control text-2xl" type="text"
+                placeholder="What needs to be done?"
+                [formControl]="todoForm"
+            >
+        </form>
+    </div>
+    <div class="">
+        <div class="content flex items-center" *ngFor="let item of todoListFilter">
+            <input class="checkbox" 
+                type="checkbox" 
+                name="isComplete"
+                id="isComplete"
+                [value]="item"
+                [checked]="item.isComplete"
+                (change)="onCheckComplete(item.id)"
+            >
+            <p class="text-2xl" 
+                [ngStyle]="{
+                    'text-decoration' : item.isComplete === true ? 'line-through' :'none',
+                    'color' : item.isComplete === true ? 'gray' :'black'
+                }"
+            >
+                {{ item.content }}
+            </p>
+        </div>
+        <div class="h-24 sm:h-16 flex items-center justify-between">
+            <p class="ml-6">{{ itemList }} item left</p>
+            <div class="btn-footer">
+                <button (click)="onSelectedTab('all')"
+                    [ngClass]="selectedTab === 'all' ? 'btn-select' : 'btn-noselect'"
+                >
+                    All
+                </button>
+                <button (click)="onSelectedTab('active')"
+                    [ngClass]="selectedTab === 'active' ? 'btn-select' : 'btn-noselect'"
+                >
+                    Active
+                </button>
+                <button (click)="onSelectedTab('completed')"
+                    [ngClass]="selectedTab === 'completed' ? 'btn-select' : 'btn-noselect'"
+                >
+                    Completed
+                </button>
+                <button class="btn-noselect" (click)="onClearTab()">
+                    Clear completed
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
